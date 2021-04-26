@@ -16,22 +16,38 @@ document.getElementById("dnd").addEventListener("submit",function(event){
             return (gary && harry && !paul && !best);
         },
         futbol: "inglaterra",
-        campeon: "barcelona"
+        campeon: "barcelona",
+        temporada: "t56"
     }
+
+
     let fut = event.target.elements.futbol.value;
+    let mensaje = "";
+
     if(fut != respuestas.futbol){
-        alert("Te has equivocado")
+        mensaje += "Fallaste la primera pregunta \n"
+    }
+    if (!respuestas.tresCopas()){
+        mensaje += "Fallaste la segunda pregunta \n";
     }
     let camp = event.target.elements.campeon.value;
     if(camp != respuestas.campeon){
-        alert("Te has equivocado")
+        mensaje += "Fallaste la tercera pregunta \n";}
+    if (!respuestas.pichichi()){
+            mensaje += "Fallaste la cuarta pregunta \n";}
+    let temp = event.target.elements.temp.value;
+    if (temp != respuestas.temporada){
+        mensaje += "Fallaste la quinta pregunta\n";
     }
 
-    if (respuestas.tresCopas()){
-        console.log("ok");
-    }else{
-        console.log("fail");
+    if (mensaje == ""){
+        alert("Eres un campeón!!")
     }
+    else {
+        alert(mensaje);
+    }
+
+    
 })
 
 
